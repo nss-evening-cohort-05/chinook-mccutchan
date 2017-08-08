@@ -2,13 +2,14 @@
 The resultant table should include the Sales Agent's full name.*/
 
 /*Map*/
-SELECT  e.Title, e.FirstName, e.LastName, i.InvoiceId
+SELECT (Employee.FirstName || ' ' || Employee.LastName) AS Name, Invoice.InvoiceId
 
 /*What tables*/
-FROM Invoice i 
-	JOIN Customer c
-		USING i.CustomerId, c.CustomerId
-	JOIN Employee e
-		USING e.EmployeeId, c.SupportRepId
+FROM Invoice 
+	JOIN Customer 
+		ON Customer.CustomerId
+	JOIN Employee 
+		ON Employee.EmployeeId
 
-/*WHERE e.Title = "Sales Support Agent"*/
+/*Filter*/
+WHERE Employee.Title = "Sales Support Agent"
