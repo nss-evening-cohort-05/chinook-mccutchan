@@ -7,4 +7,4 @@ SELECT c.FirstName, c.LastName, c.CustomerId, c.Country
 FROM Customer c
 
 /*Filter*/
-WHERE c.Country != 'USA';
+WHERE c.Country != 'USA'
